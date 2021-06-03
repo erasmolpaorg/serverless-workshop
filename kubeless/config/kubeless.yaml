@@ -1,0 +1,18 @@
+config:
+  ingressEnabled: "true"
+
+rbac:
+  create: true
+
+ui:
+  enabled: true
+  service:
+    type: ClusterIP
+
+  ingress:
+    enabled: true
+    hosts:
+      - kubeless.minikube
+
+natsTrigger:
+  enabled: true
