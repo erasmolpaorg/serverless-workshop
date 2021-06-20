@@ -7,17 +7,6 @@ export KNATIVE_SERVING_VERSION="0.23.1"
 export KNATIVE_EVENTING_VERSION="0.23.2"
 
 
-echo 'installing cli'
-#SEE https://knative.dev/docs/client/install-kn
-
-brew install knative/client/kn
-
-kn version
-
-echo 'installing istio ctl'
-brew install istioctl
-
-
 echo 'there are more installation topics. Please , take a look to the following site https://knative.dev/docs/install/install-extensions/ '
 
 # SEE https://knative.dev/docs/install/install-extensions/

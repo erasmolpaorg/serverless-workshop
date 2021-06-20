@@ -14,9 +14,8 @@ kn service create helloworld-go --image=docker.io/erasmolpa/knative-go --env TAR
 
 kubectl get ksvc
 
-echo 'debug ingress status' 
-
-kubectl get svc -n istio-system istio-ingressgateway
-kubectl describe svc istio-ingressgateway -n istio-system
-kubectl get ingresses.networking.internal.knative.dev -o=custom-columns='NAME:.metadata.name,LABELS:.metadata.labels'
+#echo 'debug ingress status' 
+#kubectl get svc -n istio-system istio-ingressgateway
+#kubectl describe svc istio-ingressgateway -n istio-system
+#kubectl get ingresses.networking.internal.knative.dev -o=custom-columns='NAME:.metadata.name,LABELS:.metadata.labels'
 
