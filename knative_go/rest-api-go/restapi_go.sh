@@ -2,7 +2,6 @@
 
 set -v
 
-cd rest-api-go
 
 # Build the container on your local machine
 docker build -t erasmolpa/rest-api-go .
