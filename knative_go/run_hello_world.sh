@@ -1,6 +1,8 @@
 #!/bin/bash
-git clone -b "release-0.23" https://github.com/knative/docs knative-docs
-cd knative-docs/docs/serving/samples/hello-world/helloworld-go
+
+set -v
+
+cd helloworld-go
 
 # Build the container on your local machine
 docker build -t erasmolpa/knative-go .
