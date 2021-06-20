@@ -17,3 +17,5 @@ kn version
 echo 'installing istio ctl'
 brew install istioctl
 
+
+#kind delete cluster --name kind-local

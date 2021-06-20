@@ -1,0 +1,1 @@
+https://knative.dev/docs/install/operator/configuring-serving-cr/#version-configuration
