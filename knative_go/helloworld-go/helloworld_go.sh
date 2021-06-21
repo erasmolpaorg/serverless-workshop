@@ -19,4 +19,5 @@ kubectl get ksvc
 #kubectl get svc -n istio-system istio-ingressgateway
 #kubectl describe svc istio-ingressgateway -n istio-system
 #kubectl get ingresses.networking.internal.knative.dev -o=custom-columns='NAME:.metadata.name,LABELS:.metadata.labels'
-
+ 
+ kubectl get ksvc helloworld-go  --output=custom-columns=NAME:.metadata.name,URL:.status.url
