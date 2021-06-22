@@ -53,6 +53,10 @@ kubectl apply -f "https://github.com/knative/eventing/releases/download/v${KNATI
 # Install Sugar Controller
 kubectl apply -f "https://github.com/knative/eventing/releases/download/v${KNATIVE_EVENTING_VERSION}/eventing-sugar-controller.yaml"
 
+#Install HPA 
+# SEE THIS DOCUMENTATION https://knative.dev/docs/install/installation-files/
+kubectl apply -f "https://github.com/knative/serving/releases/download/v${KNATIVE_EVENTING_VERSION}/serving-hpa.yaml"
+
 # Check pods have STATUS 'Running'
 kubectl get pods -n knative-eventing -w
 
