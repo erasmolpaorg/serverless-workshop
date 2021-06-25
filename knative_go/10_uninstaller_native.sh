@@ -60,3 +60,5 @@ kubectl delete namespace knative-serving
 kubectl delete namespace metrics
 kubectl delete namespace kourier-system
 kubectl delete namespace kubeless
+
+kind delete cluster --name kind-knative

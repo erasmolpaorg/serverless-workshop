@@ -1,4 +1,5 @@
 #!/bin/bash
+#FIXME DO A INSTALLATION SCRIPT FOR LINUX AND MAC ??
 
 echo 'install kubectl'
 snap install kubectl --classic
@@ -43,4 +44,6 @@ kn version
 
 echo 'installing istio ctl'
 brew install istioctl
+
+brew install --cask lens
 
