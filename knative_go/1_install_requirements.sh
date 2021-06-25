@@ -33,3 +33,14 @@ sudo mv istioctl /usr/local/bin/istioctl
 
 istioctl version
 #kind delete cluster --name kind-local
+
+echo 'installing cli'
+#SEE https://knative.dev/docs/client/install-kn
+
+brew install knative/client/kn
+
+kn version
+
+echo 'installing istio ctl'
+brew install istioctl
+

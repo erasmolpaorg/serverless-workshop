@@ -14,7 +14,7 @@ echo 'there are more installation topics. Please , take a look to the following 
 
 #SEE https://knative.dev/docs/install/knative-with-operators/
 echo 'installing knative operator....'
-kubectl apply -f https://github.com/knative/operator/releases/download/v${KNATIVE_SERVING_VERSION}/operator.yaml
+kubectl apply -f "https://github.com/knative/operator/releases/download/v${KNATIVE_SERVING_VERSION}/operator.yaml"
 
 
 kubectl apply -f "https://github.com/knative/serving/releases/download/v${KNATIVE_SERVING_VERSION}/serving-crds.yaml"
@@ -23,16 +23,18 @@ kubectl apply -f "https://github.com/knative/serving/releases/download/v${KNATIV
 kubectl apply -f "https://github.com/knative/serving/releases/download/v${KNATIVE_SERVING_VERSION}/serving-core.yaml"
 
 # Install Istio
-kubectl apply -f "https://github.com/knative/net-istio/releases/download/v${KNATIVE_SERVING_VERSION}/istio.yaml"
+#kubectl apply -f "https://github.com/knative/net-istio/releases/download/v${KNATIVE_SERVING_VERSION}/istio.yaml"
 
 # Install Knative Istio Controller
-kubectl apply -f "https://github.com/knative/net-istio/releases/download/v${KNATIVE_SERVING_VERSION}/net-istio.yaml"
+#kubectl apply -f "https://github.com/knative/net-istio/releases/download/v${KNATIVE_SERVING_VERSION}/net-istio.yaml"
+
+# Check pods have STATUS 'Running'
+#kubectl get pods -n istio-system
 
 # Optional: Setup Magic DNS (xip.io)
 kubectl apply -f "https://github.com/knative/serving/releases/download/v${KNATIVE_SERVING_VERSION}/serving-default-domain.yaml"
 
-# Check pods have STATUS 'Running'
-kubectl get pods -n istio-system
+
 
 # Check pods have STATUS 'Running'
 kubectl get pods -n knative-serving

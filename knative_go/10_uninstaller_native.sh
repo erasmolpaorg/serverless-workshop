@@ -14,7 +14,7 @@ echo 'there are more installation topics. Please , take a look to the following 
 
 #SEE https://knative.dev/docs/install/knative-with-operators/
 echo 'installing knative operator....'
-kubectl delete -f https://github.com/knative/operator/releases/download/v${KNATIVE_SERVING_VERSION}/operator.yaml
+kubectl delete -f "https://github.com/knative/operator/releases/download/v${KNATIVE_SERVING_VERSION}/operator.yaml"
 
 
 kubectl delete -f "https://github.com/knative/serving/releases/download/v${KNATIVE_SERVING_VERSION}/serving-crds.yaml"
@@ -54,3 +54,9 @@ kubectl delete -f "https://github.com/knative/eventing/releases/download/v${KNAT
 kubectl delete -f "https://github.com/knative/eventing/releases/download/v${KNATIVE_EVENTING_VERSION}/eventing-sugar-controller.yaml"
 
 
+
+kubectl delete namespace knative-eventing
+kubectl delete namespace knative-serving
+kubectl delete namespace metrics
+kubectl delete namespace kourier-system
+kubectl delete namespace kubeless
