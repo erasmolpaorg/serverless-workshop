@@ -2,7 +2,7 @@
 
 set -v
 
-cd helloworld-go
+#cd helloworld-go
 
 # Build the container on your local machine
 #FIXME MAKEFILE docker build -t erasmolpa/knative-go:v0 -f ./helloworld-go/Dockerfile 
