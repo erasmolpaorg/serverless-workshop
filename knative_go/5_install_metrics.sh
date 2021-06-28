@@ -3,7 +3,15 @@
 ##SEE https://knative.dev/docs/install/collecting-metrics/
 kubectl create namespace metrics
 
-kubectl apply --filename https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/master/bundle.yaml
+kubectl -n knative-serving patch cm config-observability --patch "$(cat ./config/config-observability-patch.yaml)"
+
+# install prometheus
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm repo update
+
+helm install prometheus-stack --namespace metrics prometheus-community/kube-prometheus-stack
+
+kubectl apply --filename https://raw.githubusercontent.com/knative/docs/master/docs/install/collecting-metrics/collector.yaml
 
 kubectl patch --namespace knative-serving configmap/config-observability \
   --type merge \
@@ -12,13 +20,4 @@ kubectl patch --namespace knative-eventing configmap/config-observability \
   --type merge \
   --patch '{"data":{"metrics.backend-destination":"opencensus","metrics.opencensus-address":"otel-collector.metrics:55678"}}'
 
-#echo 'kubectl port-forward --namespace metrics deployment/otel-collector 8889'
-
-kubectl apply --filename https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/master/bundle.yaml
-
-#kubectl apply --filename prometheus.yaml
-
-#echo 'kubectl port-forward --namespace metrics service/prometheus-operated 9090'
-
-#kubectl get pods --namespace metrics -w 
-
+kubectl port-forward --namespace metrics deployment/otel-collector 8889
