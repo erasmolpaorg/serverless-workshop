@@ -1,7 +1,7 @@
 # THIS IS NOT A README
 
 ## Things to Do
-* makefile
+* makefile DONE
 * metrics
 * README
 * service with knative serving
