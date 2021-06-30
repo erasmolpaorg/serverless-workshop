@@ -11,7 +11,11 @@ helm repo update
 
 helm install prometheus-stack --namespace metrics prometheus-community/kube-prometheus-stack
 
-kubectl apply --filename https://raw.githubusercontent.com/knative/docs/master/docs/install/collecting-metrics/collector.yaml
+# Installing Collector
+# collector example of knative
+# kubectl apply --filename https://raw.githubusercontent.com/knative/docs/master/docs/install/collecting-metrics/collector.yaml
+# collector open telemitry
+kubectl apply -f https://raw.githubusercontent.com/open-telemetry/opentelemetry-collector/main/examples/k8s/otel-config.yaml -n metrics
 
 kubectl patch --namespace knative-serving configmap/config-observability \
   --type merge \
