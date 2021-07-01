@@ -7,7 +7,7 @@ help:
 i-requirements: ## Install Kind, kubectl, istioctl.
 	./1_install_requirements.sh
 
-.PHONY: i-requirements
+.PHONY: c-cluster
 c-cluster: ## Create cluster with kind.
 	./2_create_kind_cluster.sh
 
