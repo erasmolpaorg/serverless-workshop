@@ -15,6 +15,10 @@ c-cluster: ## Create cluster with kind.
 i-knative: ## Install knative components, as serving and eventing
 	./3_install_knative.sh && ./4_install_knative_kourier.sh
 
+.PHONY: i-kourier
+i-kourier: ## Install kourier
+	./4_install_knative_kourier.sh
+
 .PHONY: u-knative
 u-knative: ## Uninstall knative.
 	./10_uninstaller_native.sh	
