@@ -1,0 +1,14 @@
+name: knative-go-starter
+component: knative
+org: erasmodomiguez
+app: knative-helloworld-go
+service: helloworld-go
+description: Deploys a serverless knative go app
+keywords: serverless, knative, go
+repo: https://github.com/erasmodominguezdc/serverless-workshop
+license: MIT
+
+inputs:
+  src: ../helloworld-go
+  
+##https://app.serverless.com/erasmodominguez/apps/new
