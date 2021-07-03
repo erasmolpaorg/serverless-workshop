@@ -40,6 +40,9 @@ kn version
 
 echo 'installing istio ctl'
 brew install istioctl
+brew install helm
 
 brew install --cask lens
+
+brew install kubectx
 

@@ -1,0 +1,17 @@
+service: helloworld-go
+name: helloworld-go
+component: knative
+
+provider:
+  name: knative
+  # optional Docker Hub credentials you need if you're using local Dockerfiles as function handlers
+  docker:
+    username: ${env:DOCKER_HUB_USERNAME}
+    password: ${env:DOCKER_HUB_PASSWORD}
+
+functions:
+  hello:
+    handler: ./helloworld-go/Dockerfile
+    context: ./helloworld-go
+  
+##https://app.serverless.com/erasmodominguez/apps/new
