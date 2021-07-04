@@ -59,6 +59,20 @@ You can run the following make command to deploy locally:
    ```
 
 
+### Monitoring
+   After **you install helm** in your computer, you need run the following make command to install the monitoring stack:
+
+  **Install prometheus stack**
+  ```sh
+     make install-monitoring-stack
+   ```
+
+  **Upgrade prometheus confguration**
+  ```sh
+     make update-prometheus-config
+   ```
+
+
 ### Knative-DEMO
 
  **Start demo**
@@ -87,7 +101,6 @@ You can run the following make command to deploy locally:
 And then navigate to the endpoint
 
 ![kube_service](./media/kubedemo.png)
-
 
 ## Testing ⚙️
 
