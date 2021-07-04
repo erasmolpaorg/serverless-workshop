@@ -93,3 +93,11 @@ knative-event: d-push h-lint h-package ## App EVENT
 
 .PHONY:bash-exec-perm
 bash-exec-perm: chmod u+x ./**/*.sh
+
+.PHONY: install-monitoring-stack
+install-monitoring-stack: ## Install monitoring stack (Prometheus, Grafana)
+	./common_scripts/install_prometheus_operator.sh
+
+.PHONY: update-prometheus-config
+update-prometheus-config: ## Update Prometheus configuration
+	helm upgrade prometheus-stack ./kube-prometheus-stack/ -n metrics
