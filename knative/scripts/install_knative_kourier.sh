@@ -5,6 +5,8 @@
 ## SEE https://knative.dev/blog/1/01/01/how-to-set-up-a-local-knative-environment-with-kind-and-without-dns-headaches/#step-3-set-up-networking-using-kourier
 ## curl -Lo kourier.yaml https://github.com/knative-sandbox/net-kourier/releases/download/v0.15.0/kourier.yaml
 echo 'Installing kourier'
+kubectl create namespace kourier-system
+
 kubectl apply --filename ./config/kourier.yaml
 
 echo 'Set Kourier as the default networking layer for Knative Serving'

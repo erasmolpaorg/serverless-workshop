@@ -15,17 +15,17 @@ install-tooling: ## install tooling required, Kind , Kubectl , make ..
 install-serverless-framework: ## install severless
 	./common_scripts/install_serverless_framework.sh
 
-.PHONY: kind-create-cluster
-kind-create-cluster: ## Create Kind Cluster
+.PHONY: create-cluster
+create-cluster: ## Create Kind Cluster
 	cd ./common_scripts && ./create_kind_cluster.sh ${CLUSTER_NAME}
 
-.PHONY: kind-delete-cluster
-kind-delete-cluster: ## Delete Kind Cluster
+.PHONY: delete-cluster
+delete-cluster: ## Delete Kind Cluster
 	./common_scripts/delete_kind_cluster.sh ${CLUSTER_NAME}
 
 .PHONY: d-build
 d-build: ## DOCKER Build image using maven build plugin
-	docker build . --no-cache -t ${DOCKER_IMAGE_KNATIVE}:${TAG} -f ./knative/helloworld-go/Dockerfile
+	cd ./knative/helloworld-go/ && docker build --no-cache -t ${DOCKER_IMAGE_KNATIVE}:${TAG} .
 
 .PHONY: d-scan
 d-scan: ## DOCKER Scan Image
@@ -67,12 +67,19 @@ d-rm-exited-containers: ## DOCKER Removes containers that are done.
 d-prune: d-kill ## DOCKER Removes containers that are done.
 	docker system prune
 
-.PHONY: knative-install ## Install all the knative components in the cluster
-knative-install:
-	./knative/scripts/install_knative.sh && ./knative/scripts/install_knative_kourier.sh
+.PHONY: knative-install
+knative-install: knative-install-components knative-install-kourier ## Install and configure Knative in the cluster
 
-.PHONY: knative-uninstall ## UnInstall all the knative components in the cluster
-knative-uninstall:
+
+.PHONY: knative-install-components
+knative-install-components: ## Install all the knative components in the cluster
+	cd ./knative/scripts/ && ./install_knative.sh
+
+.PHONY: knative-install-kourier
+knative-install-kourier: ## Install all the knative components in the cluster
+	cd ./knative/scripts/ && ./install_knative_kourier.sh
+.PHONY: knative-uninstall
+knative-uninstall:  ## UnInstall all the knative components in the cluster
 	./knative/scripts/uninstall_knative.sh
 
 .PHONY: knative-build
