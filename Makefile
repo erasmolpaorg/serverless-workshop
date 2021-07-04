@@ -71,4 +71,4 @@ knative-serve: d-push  ## App SERVE
 knative-event: d-push h-lint h-package ## App EVENT
 
 .PHONY: knative-uninstall
-knative-uninstall: knative
+knative-uninstall: ./knative/scripts/uninstall_knative.sh

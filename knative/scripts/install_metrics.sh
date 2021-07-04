@@ -5,12 +5,6 @@ kubectl create namespace metrics
 
 kubectl -n knative-serving patch cm config-observability --patch "$(cat ./config/config-observability-patch.yaml)"
 
-# install prometheus
-helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
-helm repo update
-
-helm install prometheus-stack --namespace metrics prometheus-community/kube-prometheus-stack
-
 # Installing Collector
 # collector example of knative
 # kubectl apply --filename https://raw.githubusercontent.com/knative/docs/master/docs/install/collecting-metrics/collector.yaml
