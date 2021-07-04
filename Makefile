@@ -2,10 +2,26 @@ include .env
 
 config= --env-file .env
 DOCKER_IMAGE_KNATIVE=${DOCKER_REGISTRY}/${DOCKER_REPOSITORY_KNATIVE}
-
+CLUSTER_NAME=kind-knative
 PHONY: help
 help:
 	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z_-]+:.*?## / {printf "\033[36m%-15s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
+
+.PHONY: install-tooling
+install-tooling: ## install tooling required, Kind , Kubectl , make ..
+	./common_scripts/install_requirements.sh
+
+.PHONY: install-serverless-framework
+install-serverless-framework: ## install severless
+	./common_scripts/install_serverless_framework.sh
+
+.PHONY: kind-create-cluster
+kind-create-cluster: ## Create Kind Cluster
+	./common_scripts/create_kind_cluster.sh ${CLUSTER_NAME}
+
+.PHONY: kind-delete-cluster
+kind-delete-cluster: ## Delete Kind Cluster
+	./common_scripts/delete_kind_cluster.sh ${CLUSTER_NAME}
 
 .PHONY: d-build
 d-build: ## DOCKER Build image using maven build plugin
@@ -51,15 +67,13 @@ d-rm-exited-containers: ## DOCKER Removes containers that are done.
 d-prune: d-kill ## DOCKER Removes containers that are done.
 	docker system prune
 
-.PHONY: k-info
-k-info: ## HELM status show the current release status
-	kubectl get pods --namespace $(HELM_NAMESPACE)
-
 .PHONY: knative-install ## Install all the knative components in the cluster
-knative-install: ./knative/scripts/install_knative.sh
+knative-install:
+	./knative/scripts/install_knative.sh && ./knative/scripts/install_knative_kourier.sh
 
-.PHONY: knative-install-kourier ## Install all the knative components in the cluster
-knative-install-kourier: ./knative/scripts/install_knative_kourier.sh
+.PHONY: knative-uninstall ## UnInstall all the knative components in the cluster
+knative-uninstall:
+	./knative/scripts/uninstall_knative.sh
 
 .PHONY: knative-build
 knative-build: d-build ## App BUILD , means --> (go full process) AND (Create the DOCKER Image)
@@ -70,5 +84,5 @@ knative-serve: d-push  ## App SERVE
 .PHONY: knative-event
 knative-event: d-push h-lint h-package ## App EVENT
 
-.PHONY: knative-uninstall
-knative-uninstall: ./knative/scripts/uninstall_knative.sh
+.PHONY:bash-exec-perm
+bash-exec-perm: chmod u+x ./**/*.sh
