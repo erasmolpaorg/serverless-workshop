@@ -3,6 +3,9 @@ kind: Service
 metadata:
   name: helloworld-go
   namespace: default
+  annotations:
+  # Target 10 in-flight-requests per pod.
+  autoscaling.knative.dev/target: "10"
 spec:
   template:
     spec:
