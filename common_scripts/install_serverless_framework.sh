@@ -9,5 +9,5 @@ serverless registry
 serverless create --template knative-go-starter --path knative_go_serverless
 
 export DOCKER_HUB_USERNAME=erasmolpa
-export DOCKER_HUB_PASSWORD=XXXXXXXXX
+export DOCKER_HUB_PASSWORD=XXXX
 

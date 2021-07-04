@@ -6,4 +6,4 @@ npm install
 
 serverless deploy
 
-serverless invoke -f hello
+serverless invoke -f serverless-fwk-example
