@@ -17,7 +17,7 @@ install-serverless-framework: ## install severless
 
 .PHONY: kind-create-cluster
 kind-create-cluster: ## Create Kind Cluster
-	./common_scripts/create_kind_cluster.sh ${CLUSTER_NAME}
+	cd ./common_scripts && ./create_kind_cluster.sh ${CLUSTER_NAME}
 
 .PHONY: kind-delete-cluster
 kind-delete-cluster: ## Delete Kind Cluster
