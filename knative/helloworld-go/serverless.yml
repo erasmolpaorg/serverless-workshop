@@ -11,7 +11,7 @@ provider:
 
 functions:
   hello:
-    handler: ./helloworld-go/Dockerfile
-    context: ./helloworld-go
+    handler: Dockerfile
+    context: ./
   
 ##https://app.serverless.com/erasmodominguez/apps/new

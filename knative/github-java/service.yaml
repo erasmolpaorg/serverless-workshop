@@ -1,7 +1,7 @@
 apiVersion: serving.knative.dev/v1
 kind: Service
 metadata:
-  name: github-client-
+  name: github-client
   namespace: default
 spec:
   template:
