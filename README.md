@@ -1,15 +1,17 @@
-
 # ABOUT
 
 Hi there!! 👋
 
+This repo is a Cloud Native Serverless Workshop. 
+
+# SERVERLESS WORKSHOPS
+
 ## This project was built  🛠️
 
-* [Intellij]
 * [Makefile]
-* [SpringBoot]
-* [Maven3]
 * [Docker and Docker-Compose]
+* [Kind]
+* [Kubectl]
 * [Helm]
 * [Lens]
 
@@ -17,74 +19,37 @@ Hi there!! 👋
 
 If you want to work on this project, you will need:
 
-* Java 8
+* Go
 * Make  
-* Maven 3
+* Bash
 * Docker Desktop 
 
 **Note:** 
 
-Before, use this project, please check the Mafiles command provides, 
+Before, use this project, please check the Mafiles command provides
+
+CLONE 
+   ```sh
+   git clone https://github.com/erasmolpa/serverless-workshop
+   ```
+AND RUN 
 
    ```sh
      make help
    ```
 
-For custom configuration, for example, ports binding, etc, check the **.env** file 
+AND RUN 
+
+ ```sh
+     make i-requirements
+   ```
 
 ## Build 🔧
 
-1. Clone the repo
-   ```sh
-   git clone https://github.com/erasmolpa//github_api_client_spring_boot
-   ```
-2. Run Make build commands:
-   
-   ```sh
-     make m-install ##For build the java artifact.
-   ```
-   if you want build the docker image locally
-   ```sh
-     make build 
-   ```
 
 ## Run 🚀
 
-**NOTE** 
-
-The most "complete" way to run, at least from now, is the **docker-compose-demo** option, because deploy, prometheus and grafana as well. 
-
-For locally demo using docker-compose :
-
-### Docker-Compose
-
- **Start demo**
-  ```sh
-     make local-demo-start 
-   ```
-![demo](./media/demo.png)
-
-  **Stop demo**
-  ```sh
-     make local-demo-stop 
-   ```
-
-If you have not Make installed, you can run docker-compose demo directly as following:
-
-```sh 
-   docker-compose -f local_demo/docker-compose-local-demo.yml up -d    ### For START
-   docker-compose -f local_demo/docker-compose-local-demo.yml down     ### For STOP
-```
-  
-**Endpoints**
-
- [API Endpoint](http://localhost:8080/api/v3/)
-
- [Prometheus](http://localhost:9090)
-
- [Grafana](http://localhost:3000) (user:admin, pass:foobar)
-
-### Kubernetes
+### Knative
  
 You can run the following make command to deploy locally:
 
@@ -93,24 +58,60 @@ You can run the following make command to deploy locally:
      make h-install 
    ```
 
-The helm deployment is configured to expose the API service as NodePort.That means, you will have the service in your localhost and random port. 
 
+### Knative-DEMO
+
+ **Start demo**
   ```sh
-    kubectl get svc -n default
-  ```
+     make i-knative 
+   ```
 
+![knative-demo](./media/knative-demo.png)
+
+  **Stop demo**
+  ```sh
+     make local-demo-stop 
+   ```
+  
+**Endpoints**
+
+ [GO API Endpoint](http://localhost:8080/api/v3/)
+
+ [Prometheus](http://localhost:9090)
+
+ [Grafana](http://localhost:3000) (user:admin, pass:foobar)
+ 
+
+![kube_service](./media/kube_service.png)
+
+And then navigate to the endpoint
+
+![kube_service](./media/kubedemo.png)
 
 
 ## Testing ⚙️
 
+About project Tests. Are a bit poor. I cannot dedicate all the time I would like to create Mock and integration Testing.
+
+## References 
+
+* serverless framework
+    [reference](https://www.serverless.com/framework/docs/providers/knative/)
+* examples with knative eventing
+
 
 ## Roadmap and Improvements 🚀
 
-🚧 .
 
-See the [open issues](https://github.com/erasmolpa//serverless-workshop/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc) for a list of proposed features (and known issues).
+🚧 Makefile which must provide a automate way to install and configure invironments, as well as run the different DEMOS.
 
-<!-- CONTRIBUTING -->
+🚧 Observability based on prometheus, Grafana etc for the different workshops.
+
+🚧 Echo example, should have a serverless framework runner 
+
+See the [open issues](https://github.com/erasmolpa/serverless-workshop/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc) for a list of proposed features (and known issues).
+
+
 ## Contributing 🖇️
 
 Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
@@ -125,29 +126,8 @@ Contributions are what make the open source community such an amazing place to b
 
 This project use [Semantic Versioning](https://semver.org/lang/es/)
 
-
 # Contact ✒️
 
-Please contact me in the email **erasmolpa@gmail.com** if you have any cuestion
-
-And if you want, we can connect 😃
-
-<a href="https://twitter.com/erasmolpa">
-  <img align="left" alt="Erasmo Dominguez Jimenez | Twitter" width="21px" src="https://raw.githubusercontent.com/erasmolpa/erasmolpa/master/assets/twitter.png" />
-</a>
-
-<a href="https://github.com/erasmolpa">
-  <img align="left" alt="Erasmo Dominguez Jimenez | GitHub" width="21px" src="https://raw.githubusercontent.com/erasmolpa/erasmolpa/master/assets/github.png" />
-</a>
-
-<a href="https://www.linkedin.com/in/erasmolpa/">
-  <img align="left" alt="Erasmo Dominguez Jimenez | LinkedIn" width="21px" src="https://raw.githubusercontent.com/erasmolpa/erasmolpa/master/assets/linkedin.png" />
-</a>
-
-<a href="https://www.instagram.com/erasmolpa/">
-  <img align="left" alt="Erasmo Dominguez Jimenez | Instagram" width="21px" src="https://raw.githubusercontent.com/erasmolpa/erasmolpa/master/assets/instagram.png" />
-</a>
-<br />
-<br />
-
-
+Please contact me in the email **erasmolpa@gmail.com** 
+                                       AND/OR 
+                               **cristianqs31@gmail.com** if you have any cuestion

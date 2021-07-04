@@ -1,0 +1,4 @@
+# Created by .ignore support plugin (hsz.mobi)
+/knative/serverless-fwk-example/node_modules/
+knative/serverless-fwk-example/.npmignore
+knative/serverless-fwk-example/.serverless/

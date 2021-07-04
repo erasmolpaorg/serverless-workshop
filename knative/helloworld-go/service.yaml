@@ -1,0 +1,16 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: helloworld-go
+  namespace: default
+  annotations:
+  # Target 10 in-flight-requests per pod.
+  autoscaling.knative.dev/target: "10"
+spec:
+  template:
+    spec:
+      containers:
+      - image: erasmolpa/helloworld-go
+        env:
+        - name: TARGET
+          value: "Go Sample v1"
