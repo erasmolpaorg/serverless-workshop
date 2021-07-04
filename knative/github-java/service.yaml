@@ -1,16 +1,13 @@
 apiVersion: serving.knative.dev/v1
 kind: Service
 metadata:
-  name: github-client-api
+  name: github-client-
   namespace: default
-  annotations:
-  # Target 10 in-flight-requests per pod.
-  autoscaling.knative.dev/target: "10"
 spec:
   template:
     spec:
       containers:
-      - image: erasmolpa/github-client:0.0.9
-        env:
-        - name: TARGET
-          value: "Github API Client"
+        - image: erasmolpa/github-client:0.0.9
+          env:
+            - name: TARGET
+              value: "Github client"

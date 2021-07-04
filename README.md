@@ -107,7 +107,9 @@ About project Tests. Are a bit poor. I cannot dedicate all the time I would like
 
 🚧 Observability based on prometheus, Grafana etc for the different workshops.
 
-🚧 Echo example, should have a serverless framework runner 
+🚧 Create configuration to deploy with serverless framework
+
+🚧 Customize the service.yaml file. Setting params line concurrency etc.
 
 See the [open issues](https://github.com/erasmolpa/serverless-workshop/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc) for a list of proposed features (and known issues).
 
